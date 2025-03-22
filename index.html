@@ -6,7 +6,6 @@
     <title>Перенаправление...</title>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Получаем путь без последнего "/"
             let path = window.location.pathname.replace(/\/$/, "");
 
             // Задаём правила редиректа
@@ -17,13 +16,8 @@
             // Если путь есть в объекте redirects, перенаправляем
             if (redirects[path]) {
                 window.location.href = redirects[path];
-            }
-
-            // Обновляем ссылку, если редирект не сработал
-            let a = document.getElementById("redirect");
-            if (a && redirects[path]) {
-                a.href = redirects[path];
-                a.textContent = "Перейти вручную";
+            } else {
+                document.body.innerHTML = "<h1>404</h1><p>Страница не найдена</p>";
             }
         });
     </script>
