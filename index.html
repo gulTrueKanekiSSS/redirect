@@ -5,25 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Перенаправление...</title>
     <script>
-        // Получаем путь в URL
-        let path = window.location.pathname;
+        document.addEventListener("DOMContentLoaded", function () {
+            // Получаем путь без последнего "/"
+            let path = window.location.pathname.replace(/\/$/, "");
 
-        // Задаём правила редиректа
-        const redirects = {
-            "/1": "https://xr.mix-ar.ru/q?id=2776"
-        };
+            // Задаём правила редиректа
+            const redirects = {
+                "/1": "https://xr.mix-ar.ru/q?id=2776",
+            };
 
-        // Если путь есть в объекте redirects, перенаправляем
-        if (redirects[path]) {
-            window.location.href = redirects[path];
-            a = document.getElementById("redirect")
-            a.href = redirects[path]
-        } else {
-            document.write("<h1>404</h1><p>Страница не найдена</p>");
-        }
+            // Если путь есть в объекте redirects, перенаправляем
+            if (redirects[path]) {
+                window.location.href = redirects[path];
+            }
+
+            // Обновляем ссылку, если редирект не сработал
+            let a = document.getElementById("redirect");
+            if (a && redirects[path]) {
+                a.href = redirects[path];
+                a.textContent = "Перейти вручную";
+            }
+        });
     </script>
 </head>
 <body>
-<p>Если перенаправление не сработало, выберите: <a id="redirect">Сайт 1</a></p>
+<p>Если перенаправление не сработало, выберите: <a id="redirect" href="#">Сайт 1</a></p>
 </body>
 </html>
