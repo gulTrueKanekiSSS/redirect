@@ -16,12 +16,14 @@
         // Если путь есть в объекте redirects, перенаправляем
         if (redirects[path]) {
             window.location.href = redirects[path];
+            a = document.getElementById("redirect")
+            a.href = redirects[path]
         } else {
             document.write("<h1>404</h1><p>Страница не найдена</p>");
         }
     </script>
 </head>
 <body>
-<p>Если перенаправление не сработало, выберите: <a href="https://site1.com">Сайт 1</a> | <a href="https://site2.com">Сайт 2</a></p>
+<p>Если перенаправление не сработало, выберите: <a id="redirect">Сайт 1</a></p>
 </body>
 </html>
