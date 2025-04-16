@@ -1,0 +1,9 @@
+RewriteEngine On
+
+
+RewriteRule ^monuments$ monuments.html [L]
+
+RewriteRule ^redirect$ redirect.html [L]
+
+RewriteRule ^redirect/(.*)$ /redirect.html?name=$1 [R,L]
+

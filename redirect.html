@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel=stylesheet href="redirect.css">
+    <title>Оживить историю с MixAR</title>
+    <script>
+
+        window.onload = function () {
+            const button = document.getElementById('ar-button');
+            const currentPath = window.location.search;
+
+            const urlParams = new URLSearchParams(currentPath);
+            const name = urlParams.get('name');
+            const now = new Date();
+            const hours = now.getHours();
+            console.log(name)
+            console.log(hours)
+
+
+            // Создаем Map с именами и соответствующими ссылками
+            const linkMapDay = new Map([
+                ['nikolaev', 'https://xr.mix-ar.ru/q?id=2776'],
+                ['gagarin', 'http://example.com/gagarin'],
+                ['turing', 'http://example.com/turing']
+            ]);
+
+            const linkMapNight = new Map([
+                ['nikolaev', 'https://xr.mix-ar.ru/q?id=2912'],
+                ['gagarin', 'http://example.com/gagarin'],
+                ['turing', 'http://example.com/turing']
+            ])
+
+            // Проверяем, есть ли имя в Map
+            if ((hours >= 6 && hours < 20) && linkMapDay.has(name)) {
+                button.href = linkMapDay.get(name);  // Берем ссылку из Map
+            }else if((hours <= 6 || hours >= 20) && linkMapNight.has(name)){
+                button.href = linkMapNight.get(name);  // Берем ссылку из Map
+            }else {
+                button.href = '#';
+                button.textContent = 'Неизвестная ссылка';
+            }}
+
+    </script>
+</head>
+<body>
+<div class="instruction-block">
+    <div class="iphone-note">
+        Если у вас <span class="iphone-label">iPhone</span>,<br>
+        откройте сайт через Safari
+    </div>
+
+    <ol>
+        <li>Нажмите «Оживить историю».</li>
+        <li>В открывшемся сайте — нажмите «View».</li>
+        <li>Установите приложение MixAR, если потребуется.</li>
+        <li>В приложении разрешите доступ к камере.</li>
+        <li>Наведите камеру на памятник — и смотрите, как он оживает!</li>
+    </ol>
+
+    <a href="#" class="cta-button" id="ar-button">Оживить историю</a>
+</div>
+
+<script>
+    function createStars() {
+        const starsContainer = document.createElement("div");
+        starsContainer.classList.add("stars");
+        document.body.appendChild(starsContainer);
+
+        for (let i = 0; i < 100; i++) { // 100 звёзд
+            const star = document.createElement("div");
+            star.classList.add("star");
+
+            // Случайное расположение
+            star.style.top = Math.random() * 100 + "vh";
+            star.style.left = Math.random() * 100 + "vw";
+
+            // Случайная задержка анимации для эффекта мерцания
+            star.style.animationDelay = Math.random() * 5 + "s";
+
+            starsContainer.appendChild(star);
+        }
+    }
+
+    if (new Date().getHours() >= 20 || new Date().getHours() < 6) {
+        createStars(); // Запускаем генерацию звёзд только ночью
+    }
+</script>
+</body>
+</html>

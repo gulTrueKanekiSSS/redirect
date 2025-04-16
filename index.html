@@ -3,26 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Перенаправление...</title>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            let path = window.location.pathname.replace(/\/$/, "");
+    <link rel="stylesheet" href="index.css">
 
-            // Задаём правила редиректа
-            const redirects = {
-                "/1": "https://xr.mix-ar.ru/q?id=2776",
-            };
-
-            // Если путь есть в объекте redirects, перенаправляем
-            if (redirects[path]) {
-                window.location.href = redirects[path];
-            } else {
-                document.body.innerHTML = "<h1>404</h1><p>Страница не найдена</p>";
-            }
-        });
-    </script>
+    <title>Памятник</title>
 </head>
 <body>
-<p>Если перенаправление не сработало, выберите: <a id="redirect" href="#">Сайт 1</a></p>
+<div class="container">
+    <h1>Добро пожаловать!</h1>
+    <p>Нажмите кнопку ниже, чтобы перейти на страницу памятника.</p>
+    <a href="/monuments" class="btn">Перейти</a>
+</div>
 </body>
 </html>

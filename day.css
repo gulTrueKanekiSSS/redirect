@@ -1,0 +1,141 @@
+/* day.css */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    transition: color 1s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #ffefba, #ffffff, #87CEFA); /* Нежный рассвет */
+    transition: background 1s ease-in-out;
+    z-index: -1;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 2.5em;
+    color: #37474f;
+    transition: color 0.5s ease-in-out;
+}
+
+a.btn {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    padding: 15px 40px;
+    text-decoration: none;
+    background: linear-gradient(45deg, #FFA726, #FF7043); /* Тёплый рассветный градиент */
+    color: white;
+    border-radius: 30px;
+    font-size: 1.3em;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+a.btn:hover {
+    background: linear-gradient(45deg, #FF7043, #D84315);
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Сообщение для iPhone */
+.ios-warning {
+    text-align: center;
+    color: #d32f2f;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 10px;
+    background: rgba(255, 235, 59, 0.3);
+    border: 2px solid #d32f2f;
+    border-radius: 10px;
+    display: block;
+    margin: 10px auto;
+}
+
+/* Кнопка копирования */
+.copy-btn {
+    display: block;
+    width: fit-content;
+    margin: 10px auto;
+    padding: 12px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    background: linear-gradient(45deg, #4CAF50, #2E7D32);
+    color: white;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.copy-btn:hover {
+    background: linear-gradient(45deg, #388E3C, #1B5E20);
+    transform: scale(1.05);
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2.2em;
+        margin-top: 30px;
+    }
+
+    a.btn {
+        padding: 18px 45px;
+        font-size: 1.5em;
+    }
+
+    .ios-warning {
+        font-size: 1.3em;
+        padding: 12px;
+        margin: 12px auto;
+    }
+
+    .copy-btn {
+        padding: 15px 35px;
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin-top: 20px;
+    }
+
+    a.btn {
+        padding: 20px 50px;
+        font-size: 1.7em;
+    }
+
+    .ios-warning {
+        font-size: 1.5em;
+        padding: 14px;
+        margin: 14px auto;
+    }
+
+    .copy-btn {
+        padding: 18px 45px;
+        font-size: 1.6em;
+    }
+}
